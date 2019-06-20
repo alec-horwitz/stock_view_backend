@@ -8,24 +8,26 @@
 	</head>
 	<body>
 		<h1>Django rec</h1>
-		<h2>Access Records:</h2>
+		<h2>Users:</h2>
 		<div class="djangtwo">
-			{% if access_records %}
+			{% if users %}
 				<table>
 					<thead>
-						<th>Site Name</th>
-						<th>Date Accessed</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email Adress</th>
 					</thead>
 
-					{% for acc in access_records %}
+					{% for usr in users %}
 					<tr>
-						<td>{{ acc.name }}</td>
-						<td>{{ acc.date }}</td>
+						<td>{{ usr.first_name }}</td>
+						<td>{{ usr.last_name }}</td>
+						<td>{{ usr.email }}</td>
 					</tr>
 					{% endfor %}
 				</table>
 			{% else %}
-				<p>NO ACCESS RECORDS FOUND!</p>
+				<p>NO USERS FOUND!</p>
 			{% endif %}
 
 		</div>
