@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>StockView Backend</title>
+		<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+	</head>
+	<body>
+		<h1>Django rec</h1>
+		<h2>Users:</h2>
+		<div class="djangtwo">
+			{% if users %}
+				<table>
+					<thead>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email Adress</th>
+					</thead>
+
+					{% for usr in users %}
+					<tr>
+						<td>{{ usr.first_name }}</td>
+						<td>{{ usr.last_name }}</td>
+						<td>{{ usr.email }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+			{% else %}
+				<p>NO USERS FOUND!</p>
+			{% endif %}
+
+		</div>
+	</body>
+</html>
