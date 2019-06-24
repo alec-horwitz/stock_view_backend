@@ -3,29 +3,24 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>StockView Backend</title>
+		<title>Users</title>
 		<link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
 	</head>
 	<body>
-		<h1>Django rec</h1>
-		<h2>Users:</h2>
+		<h1>All</h1>
+		<h2>Users</h2>
 		<div class="djangtwo">
 			{% if users %}
-				<table>
-					<thead>
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Email Adress</th>
-					</thead>
-
+				<ol>
 					{% for usr in users %}
-					<tr>
-						<td>{{ usr.first_name }}</td>
-						<td>{{ usr.last_name }}</td>
-						<td>{{ usr.email }}</td>
-					</tr>
+					<li>User Info</li>
+						<ul>
+							<li>First Name: {{ usr.first_name }}</li>
+							<li>Last Name: {{ usr.last_name }}</li>
+							<li>Email Adress: {{ usr.email }}</li>
+						</ul>
 					{% endfor %}
-				</table>
+				</ol>
 			{% else %}
 				<p>NO USERS FOUND!</p>
 			{% endif %}
