@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from . import forms
-from stock_view_backend_app.models import AccessRecord,Webpage,Topic,User
+from stock_view_backend_app.models import AccessRecord,Webpage,Topic
+from stock_view_backend_app.forms import NewUserForm
 # Create your views here.
 
 def index(request):
@@ -17,9 +17,17 @@ def access(request):
 	return render(request, 'stock_view_backend_app/access.html', context=date_dict)
 
 def users(request):
-	user_list = User.objects.order_by('first_name')
-	user_dict = {'users': user_list}
-	return render(request, 'stock_view_backend_app/users.html', context=user_dict)
+	form = NewUserForm()
+	if request.method == "POST":
+		form = NewUserForm(request.POST)
+
+		if form.is_valid():
+			form.save(commit=True)
+			return index(request)
+		else:
+			print("ERROR: Form Invalid!")
+
+	return render(request, 'stock_view_backend_app/users.html', {'form': form})
 
 def form_name_view(request):
 	form = forms.FormName()

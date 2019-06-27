@@ -1,5 +1,6 @@
 from django import forms
 from django.core import validators
+from stock_view_backend_app.models import User
 
 # def check_for_z(value):
 # 	if value[0].lower() != 'z':
@@ -27,3 +28,8 @@ class FormName(forms.Form):
 	# 	if len(botcatcher) > 0:
 	# 		raise forms.ValidationError("GOTCHA BOT!")
 	# 	return botcatcher
+
+class NewUserForm(forms.ModelForm):
+	class Meta():
+		model = User
+		fields = '__all__'
