@@ -5,7 +5,8 @@ from stock_view_backend_app.forms import NewUserForm
 # Create your views here.
 
 def index(request):
-	return render(request, 'stock_view_backend_app/index.html')
+	context_dict = {'text':'Hello world!', 'number':100}
+	return render(request, 'stock_view_backend_app/index.html',context_dict)
 
 def help(request):
 	my_dict = {'insert_me': "Hello I am from stock_view_backend_app/views.py !"}
@@ -42,3 +43,9 @@ def form_name_view(request):
 			print("TEXT: "+form.cleaned_data['text'])
 
 	return render(request, 'stock_view_backend_app/form_page.html', {'form':form})
+
+def other(request):
+	return render(request, 'stock_view_backend_app/other.html')
+
+def relative(request):
+	return render(request, 'stock_view_backend_app/relative_url_templates.html')
