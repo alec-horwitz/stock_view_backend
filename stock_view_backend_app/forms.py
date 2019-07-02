@@ -1,6 +1,7 @@
 from django import forms
 from django.core import validators
-from stock_view_backend_app.models import User
+from stock_view_backend_app.models import UserModel, UserProfileInfo
+from django.contrib.auth.models import User
 
 # def check_for_z(value):
 # 	if value[0].lower() != 'z':
@@ -31,5 +32,17 @@ class FormName(forms.Form):
 
 class NewUserForm(forms.ModelForm):
 	class Meta():
-		model = User
+		model = UserModel
 		fields = '__all__'
+
+class UserForm(forms.ModelForm):
+	password = forms.CharField(widget=forms.PasswordInput())
+
+	class Meta(object):
+		model = User
+		fields = ('username', 'email', 'password')
+
+class UserProfileInfoForm(forms.ModelForm):
+	class Meta(object):
+		model = UserProfileInfo
+		fields = ('portfolio_site', 'profile_pic')
