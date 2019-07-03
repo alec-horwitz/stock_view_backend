@@ -12,4 +12,5 @@ urlpatterns = [
 	url(r'^formpage', views.form_name_view, name='form_name'),
 	url(r'^other', views.other, name='other'),
 	url(r'^relative', views.relative, name='relative'),
+	url(r'^register', views.register, name='register'),
 ]
