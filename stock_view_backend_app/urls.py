@@ -13,4 +13,6 @@ urlpatterns = [
 	url(r'^other', views.other, name='other'),
 	url(r'^relative', views.relative, name='relative'),
 	url(r'^register', views.register, name='register'),
+	url(r'^logout', views.user_logout, name='logout'),
+	url(r'^user_login', views.user_login, name='user_login'),
 ]
