@@ -8,11 +8,18 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
+from django.views.generic import View
+
 # Create your views here.
 
-def index(request):
-	context_dict = {'text':'Hello world!', 'number':100}
-	return render(request, 'stock_view_backend_app/index.html',context_dict)
+class index(View):
+    def get(self, request):
+        return HttpResponse("Class based Views Neet")
+
+
+# def index(request):
+# 	context_dict = {'text':'Hello world!', 'number':100}
+# 	return render(request, 'stock_view_backend_app/index.html',context_dict)
 
 @login_required
 def user_logout(request):
