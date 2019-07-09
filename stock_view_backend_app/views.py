@@ -12,14 +12,14 @@ from django.views.generic import View
 
 # Create your views here.
 
-class index(View):
+class CBView(View):
     def get(self, request):
-        return HttpResponse("Class based Views Neet")
+        return HttpResponse("Class based Views Are Neet!")
 
 
-# def index(request):
-# 	context_dict = {'text':'Hello world!', 'number':100}
-# 	return render(request, 'stock_view_backend_app/index.html',context_dict)
+def index(request):
+	context_dict = {'text':'Hello world!', 'number':100}
+	return render(request, 'stock_view_backend_app/index.html',context_dict)
 
 @login_required
 def user_logout(request):

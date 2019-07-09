@@ -19,7 +19,7 @@ from django.conf.urls import include
 from stock_view_backend_app import views
 
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
+	url(r'^$', views.CBView.as_view(), name='CBView'),
 	url(r'^api/', include('stock_view_backend_app.urls')),
     url(r'^admin/', admin.site.urls),
 ]
