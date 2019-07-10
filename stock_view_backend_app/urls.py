@@ -15,4 +15,6 @@ urlpatterns = [
 	url(r'^register', views.register, name='register'),
 	url(r'^logout', views.user_logout, name='logout'),
 	url(r'^user_login', views.user_login, name='user_login'),
+	url(r'^CBView', views.CBView.as_view(), name='CBView'),
+	url(r'^IndexView', views.IndexView.as_view(), name='IndexView'),
 ]
