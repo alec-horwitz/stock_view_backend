@@ -8,9 +8,17 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 
-from django.views.generic import View, TemplateView
+from django.views.generic import View, TemplateView, ListView, DetailView
 
 # Create your views here.
+
+class SchoolListView(ListView):
+    model = models.school
+
+class SchoolDetailView(object):
+    model = models.school
+    template_name = 'stock_view_backend_app/school_detail.html'
+
 
 class IndexView(TemplateView):
     template_name = 'stock_view_backend_app/index.html'
