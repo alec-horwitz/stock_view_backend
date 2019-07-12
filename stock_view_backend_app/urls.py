@@ -17,4 +17,6 @@ urlpatterns = [
 	url(r'^user_login', views.user_login, name='user_login'),
 	url(r'^CBView', views.CBView.as_view(), name='CBView'),
 	url(r'^IndexView', views.IndexView.as_view(), name='IndexView'),
+	url(r'^list', views.SchoolListView.as_view(), name='list'),
+	url(r'^(?P<pk>[-\w]+)/$', views.SchoolDetailView.as_view(), name='detail'),
 ]

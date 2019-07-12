@@ -11,6 +11,7 @@
 				<ul class="nav navbar-nav">
 					<li><a class="navbar-brand" href="{% url 'stock_view_backend_app:index' %}">Brand</a></li>
 					<li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+					<li><a class="navbar-link" href="{% url 'stock_view_backend_app:list' %}">Schools</a></li>
 					<li><a class="navbar-link" href="{% url 'stock_view_backend_app:register' %}">Register</a></li>
 					{% if user.is_authenticated %}
 					<li><a class="navbar-link" href="{% url 'stock_view_backend_app:logout' %}">Logout</a></li>

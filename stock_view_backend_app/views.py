@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . import forms
+from . import forms, models
 from stock_view_backend_app.models import AccessRecord,Webpage,Topic
 from stock_view_backend_app.forms import NewUserForm, UserForm, UserProfileInfoForm
 
@@ -13,10 +13,12 @@ from django.views.generic import View, TemplateView, ListView, DetailView
 # Create your views here.
 
 class SchoolListView(ListView):
-    model = models.school
+    context_object_name = 'schools'
+    model = models.School
 
-class SchoolDetailView(object):
-    model = models.school
+class SchoolDetailView(DetailView):
+    context_object_name = 'school_detail'
+    model = models.School
     template_name = 'stock_view_backend_app/school_detail.html'
 
 
