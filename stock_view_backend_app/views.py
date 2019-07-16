@@ -5,10 +5,13 @@ from stock_view_backend_app.forms import NewUserForm, UserForm, UserProfileInfoF
 
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
 
-from django.views.generic import View, TemplateView, ListView, DetailView
+from django.views.generic import (View, TemplateView, 
+                                ListView, DetailView,
+                                CreateView, UpdateView,
+                                DeleteView)
 
 # Create your views here.
 
@@ -20,6 +23,18 @@ class SchoolDetailView(DetailView):
     context_object_name = 'school_detail'
     model = models.School
     template_name = 'stock_view_backend_app/school_detail.html'
+
+class SchoolCreateView(CreateView):
+    fields = ('name', 'principal', 'location')
+    model = models.School
+
+class SchoolUpdateView(UpdateView):
+    fields = ('name', 'principal')
+    model = models.School
+
+class SchoolDeleteView(DeleteView):
+    model = models.School
+    success_url = reverse_lazy("stock_view_backend_app:list")
 
 
 class IndexView(TemplateView):
