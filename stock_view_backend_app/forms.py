@@ -1,6 +1,6 @@
 from django import forms
 from django.core import validators
-from stock_view_backend_app.models import UserModel, UserProfileInfo
+from stock_view_backend_app.models import UserModel, UserProfileInfo, Post, Comment
 from django.contrib.auth.models import User
 
 # def check_for_z(value):
@@ -46,3 +46,23 @@ class UserProfileInfoForm(forms.ModelForm):
 	class Meta(object):
 		model = UserProfileInfo
 		fields = ('portfolio_site', 'profile_pic')
+
+class PostForm(forms.ModelForm):
+	class Meta():
+		model = Post
+		fields = ('author', 'title', 'text')
+
+		widget = {
+			'title': forms.TextInput(attrs={'class':'textinputclass'})
+			'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea postcontent'})
+		}
+
+class CommentForm(forms.ModelForm):
+	class Meta():
+		model = Comment
+		fields = ('author', 'text')
+
+		widget = {
+			'author': forms.TextInput(attrs={'class':'textinputclass'})
+			'text': forms.Textarea(attrs={'class': 'editable medium-editor-textarea'})
+		}
